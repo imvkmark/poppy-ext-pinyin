@@ -14,30 +14,30 @@ use Overtrue\Pinyin\Pinyin;
 
 class ExtensionServiceProvider extends LaravelServiceProvider
 {
-	/**
-	 * Indicates if loading of the provider is deferred.
-	 *
-	 * @var bool
-	 */
-	protected $defer = true;
+    /**
+     * Indicates if loading of the provider is deferred.
+     *
+     * @var bool
+     */
+    protected $defer = true;
 
-	/**
-	 * Register the provider.
-	 */
-	public function register()
-	{
-		$this->app->singleton('poppy.ext.pinyin', function ($app) {
-			return new Pinyin();
-		});
-	}
+    /**
+     * Register the provider.
+     */
+    public function register()
+    {
+        $this->app->singleton('poppy.ext.pinyin', function ($app) {
+            return new Pinyin();
+        });
+    }
 
-	/**
-	 * Get the services provided by the provider.
-	 *
-	 * @return array
-	 */
-	public function provides()
-	{
-		return ['poppy.ext.pinyin'];
-	}
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return ['poppy.ext.pinyin'];
+    }
 }

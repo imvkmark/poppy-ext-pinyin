@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Facade;
 
 class Pinyin extends Facade
 {
-	public static function getFacadeAccessor()
-	{
-		return 'poppy.ext.pinyin';
-	}
+    public static function getFacadeAccessor()
+    {
+        return 'poppy.ext.pinyin';
+    }
 }
