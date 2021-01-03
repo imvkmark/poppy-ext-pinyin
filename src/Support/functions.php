@@ -9,8 +9,6 @@
  * with this source code in the file LICENSE.
  */
 
-use Illuminate\Support\Facades\Log;
-
 if (!function_exists('ext_pinyin')) {
     /**
      * Get the Pinyin of given string.
@@ -20,13 +18,10 @@ if (!function_exists('ext_pinyin')) {
      *
      * @return array
      */
-    function ext_pinyin(string $string, $option = PINYIN_NO_TONE)
+    function ext_pinyin(string $string, $option = PINYIN_NO_TONE): array
     {
         return app('poppy.ext.pinyin')->convert($string, $option);
     }
-}
-else {
-    Log::warning('There exist multiple function "pinyin".');
 }
 
 if (!function_exists('ext_pinyin_abbr')) {
@@ -38,34 +33,12 @@ if (!function_exists('ext_pinyin_abbr')) {
      *
      * @return string
      */
-    function ext_pinyin_abbr(string $string, $delimiter = '')
+    function ext_pinyin_abbr(string $string, $delimiter = ''): string
     {
         return app('poppy.ext.pinyin')->abbr($string, $delimiter);
     }
 }
-else {
-    Log::warning('There exist multiple function "pinyin_abbr".');
-}
 
-if (!function_exists('ext_pinyin_permlink')) {
-    /**
-     * Get a pinyin permalink from string.
-     *
-     * @param string $string
-     * @param string $delimiter
-     *
-     * @return string
-     *
-     * @deprecated since version 3.0.1. Use the "pinyin_permalink" method instead.
-     */
-    function ext_pinyin_permlink(string $string, $delimiter = '-')
-    {
-        return app('poppy.ext.pinyin')->permalink($string, $delimiter);
-    }
-}
-else {
-    Log::warning('There exist multiple function "pinyin_permlink".');
-}
 
 if (!function_exists('ext_pinyin_permalink')) {
     /**
@@ -76,14 +49,12 @@ if (!function_exists('ext_pinyin_permalink')) {
      *
      * @return string
      */
-    function ext_pinyin_permalink($string, $delimiter = '-')
+    function ext_pinyin_permalink(string $string, $delimiter = '-'): string
     {
         return app('poppy.ext.pinyin')->permalink($string, $delimiter);
     }
 }
-else {
-    Log::warning('There exist multiple function "pinyin_permalink".');
-}
+
 
 if (!function_exists('ext_pinyin_sentence')) {
     /**
@@ -94,11 +65,8 @@ if (!function_exists('ext_pinyin_sentence')) {
      *
      * @return string
      */
-    function ext_pinyin_sentence(string $string, $tone = false)
+    function ext_pinyin_sentence(string $string, $tone = false): string
     {
         return app('poppy.ext.pinyin')->sentence($string, $tone);
     }
-}
-else {
-    Log::warning('There exist multiple function "pinyin_sentence".');
 }
